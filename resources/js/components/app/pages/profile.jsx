@@ -3,17 +3,39 @@ import $ from 'jquery';
 import { Link } from "react-router-dom";
 
 import Scripts from '../scripts/scripts.js';
+import Header from '../includes/header.jsx';
 
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user: {},
       base_url: this.props.base_url,
       api_url: this.props.api_url,
     }
+    this.fetchUser = this.fetchUser.bind(this);
+  }
+
+
+  componentDidMount () {
+      this.fetchUser();
   }
   
+    async fetchUser() {
+        await axios('/api/user/info/' + window.localStorage.getItem('user'))
+        .then(response => {
+            if (!response.data == 200) {
+                return (this.errorMessage = 'Could not fetch user');
+            }
+            const user = response.data.data;
+            this.setState({user});
+        })
+        .catch(error => {});
+    }
+
     
+       
+
   componentWillUnmount() {
     $("head").find('script').remove(); 
   }
@@ -21,6 +43,11 @@ class Profile extends Component {
   render() {
     return (
         <Fragment>
+            <Header
+        base_url={this.state.base_url}
+        api_url={this.state.api_url}
+        {...this.props}
+    />
        <div className="breadcrumb-area shadow dark text-center bg-fixed text-light" style={{backgroundImage: "url(assets/img/banner/11.jpg)"}}>
         <div className="container">
             <div className="row">
@@ -76,13 +103,13 @@ class Profile extends Component {
                                     </p>
                                     <ul>
                                         <li>
-                                            Contact <span>08130148519</span>
+                                            Name <span>{this.state.user.name} </span>
                                         </li>
                                         <li>
-                                            Email <span>info@teacherdomain.com</span>
+                                            Contact <span>{this.state.user.tel}</span>
                                         </li>
                                         <li>
-                                            Address <span>California, TX 70240 </span>
+                                            Email <span>{this.state.user.email}</span>
                                         </li>
                                     </ul>
                                 </div>

@@ -3,6 +3,7 @@ import $ from 'jquery';
 import { Link } from "react-router-dom";
 
 import Scripts from '../scripts/scripts.js';
+import Header from '../includes/header';
 
 class Register extends Component {
   constructor(props) {
@@ -39,6 +40,11 @@ class Register extends Component {
   
   render() {
     return (
+        <Fragment>
+        <Header
+        base_url={this.state.base_url}
+        api_url={this.state.api_url}
+    />
         <div className="login-area default-padding">
         <div className="container">
             <div className="row">
@@ -115,6 +121,7 @@ class Register extends Component {
             </div>
         </div>
     </div>
+    </Fragment>
     );
   }
 }

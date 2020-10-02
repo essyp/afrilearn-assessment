@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import $ from 'jquery';
 import { Link } from "react-router-dom";
+import Header from '../includes/header.jsx';
+
 
 import Scripts from '../scripts/scripts.js';
 
@@ -12,10 +14,6 @@ class Login extends Component {
       api_url: this.props.api_url,
     }
     this.signIn = this.signIn.bind(this);
-  }
-
-  componentWillUnmount() {
-    $("head").find('script').remove(); 
   }
 
   signIn () {
@@ -35,9 +33,21 @@ class Login extends Component {
         close_loader('#page');
     })
 }
+
+  componentWillUnmount() {
+    $("head").find('script').remove(); 
+  }
+
+  
   
   render() {
     return (
+        <Fragment>
+        <Header
+        base_url={this.state.base_url}
+        api_url={this.state.api_url}
+        {...this.props}
+    />
         <div className="login-area default-padding">
         <div className="container">
             <div className="row">
@@ -99,6 +109,7 @@ class Login extends Component {
             </div>
         </div>
     </div>
+    </Fragment>
     );
   }
 }

@@ -21,15 +21,14 @@ class App extends Component {
       base_url: this.props.base_url,
       api_url: this.props.api_url
     }
+    
   }
+
+  
 
   render() {
     return (
         <Fragment>
-            <Header
-                base_url={this.state.base_url}
-                api_url={this.state.api_url}
-            />
             <Switch key="switch">
                 <Route exact path="/" render={(props) => 
                 <Home {...props}
@@ -37,6 +36,12 @@ class App extends Component {
                     api_url={this.state.api_url} 
                 />} 
                 />
+                {/* <Route path="/login" render={(props) => 
+                <Login signIn={this.signIn} {...props} 
+                    base_url={this.state.base_url} 
+                    api_url={this.state.api_url} 
+                />} 
+                /> */}
                 <Route path="/login" render={(props) => 
                 <Login {...props} 
                     base_url={this.state.base_url} 

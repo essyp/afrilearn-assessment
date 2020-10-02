@@ -3,6 +3,7 @@ import $ from 'jquery';
 import { Link } from "react-router-dom";
 
 import Scripts from '../scripts/scripts.js';
+import Header from '../includes/header.jsx';
 
 class Contact extends Component {
   constructor(props) {
@@ -20,7 +21,10 @@ class Contact extends Component {
   render() {
     return (
         <Fragment>
-       
+        <Header
+                base_url={this.state.base_url}
+                api_url={this.state.api_url}
+            />
     <div className="breadcrumb-area shadow dark text-center bg-fixed text-light" style={{backgroundImage: "url(assets/img/banner/8.jpg)"}}>
         <div className="container">
             <div className="row">

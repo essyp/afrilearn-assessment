@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import $ from 'jquery';
 import { Link } from "react-router-dom";
+import Header from '../includes/header.jsx';
 
 import Scripts from '../scripts/scripts.js';
 
@@ -16,6 +17,10 @@ class Home extends Component {
   render() {
     return (
         <Fragment>
+            <Header
+                base_url={this.state.base_url}
+                api_url={this.state.api_url}
+            />
             <div class="banner-area content-top-heading less-paragraph text-normal">
                 <div id="bootcarousel" class="carousel slide animate_text carousel-fade" data-ride="carousel">
                     <div className="carousel-inner text-light carousel-zoom">

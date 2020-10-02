@@ -12,7 +12,8 @@ class Header extends Component {
     this.logoutUser = this.logoutUser.bind(this);
   }
 
-  logoutUser() {
+  logoutUser(event) {
+      event.preventDefault();
     open_loader('#page');
     axios('api/user/logout/')
     .then((response) => {
