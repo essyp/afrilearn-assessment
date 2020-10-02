@@ -4,6 +4,7 @@ This is the redesign of MyAfrilearn "https://myafrilearn.com/" home page, sign u
 
 - clone the repository to your local server directory.
 - run migration using "php artisan migrate".
+- Ensure your using node version 12
 - Run this command to setup react  "npm install".
 - run this command to build the project "npm run dev"
 - serve the project using "php artisan serve".
