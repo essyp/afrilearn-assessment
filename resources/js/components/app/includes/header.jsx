@@ -83,7 +83,7 @@ class Header extends Component {
                                 <div className="input-group">
                                     <form action="#">
                                         <input type="text" name="text" className="form-control" placeholder="Search" />
-                                        <button type="submit">
+                                        <button type="button">
                                             <i className="fas fa-search"></i>
                                         </button>  
                                     </form>
@@ -105,9 +105,9 @@ class Header extends Component {
                             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                                 <i className="fa fa-bars"></i>
                             </button>
-                            <a className="navbar-brand" href="index">
+                            <Link className="navbar-brand" to="/">
                                 <img src="assets/img/afrilearn_logo.png" style={{maxHeight: "40px"}} className="logo" alt="Logo" />
-                            </a>
+                            </Link>
                         </div>
                         
                         <div className="collapse navbar-collapse" id="navbar-menu">
