@@ -1,4 +1,4 @@
-## About Laravel
+## About Project
 
 This is the redesign of MyAfrilearn "https://myafrilearn.com/" home page, sign up and login page using react js and laravel. Use the below step by step process to setup the project on your system
 
